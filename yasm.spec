@@ -4,7 +4,7 @@
 #
 Name     : yasm
 Version  : 1.3.0
-Release  : 13
+Release  : 14
 URL      : http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
 Source0  : http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
 Summary  : No detailed summary available
@@ -13,9 +13,13 @@ License  : BSD-2-Clause
 Requires: yasm-bin
 Requires: yasm-doc
 BuildRequires : cmake
+BuildRequires : pbr
+BuildRequires : pip
 BuildRequires : python-dev
+BuildRequires : python3-dev
 BuildRequires : setuptools
 BuildRequires : xmlto
+Patch1: no-timestamp.patch
 
 %description
 
@@ -32,6 +36,7 @@ bin components for the yasm package.
 Summary: dev components for the yasm package.
 Group: Development
 Requires: yasm-bin
+Provides: yasm-devel
 
 %description dev
 dev components for the yasm package.
@@ -47,12 +52,16 @@ doc components for the yasm package.
 
 %prep
 %setup -q -n yasm-1.3.0
+%patch1 -p1
 
 %build
+export LANG=C
+export SOURCE_DATE_EPOCH=1484435350
 %configure --disable-static
-make V=1 %{?_smp_mflags}
+make V=1  %{?_smp_mflags}
 
 %install
+export SOURCE_DATE_EPOCH=1484435350
 rm -rf %{buildroot}
 %make_install
 
