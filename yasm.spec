@@ -4,7 +4,7 @@
 #
 Name     : yasm
 Version  : 1.3.0
-Release  : 15
+Release  : 16
 URL      : http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
 Source0  : http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
 Summary  : No detailed summary available
