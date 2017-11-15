@@ -4,7 +4,7 @@
 #
 Name     : yasm
 Version  : 1.3.0
-Release  : 16
+Release  : 17
 URL      : http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
 Source0  : http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
 Summary  : No detailed summary available
@@ -20,6 +20,7 @@ BuildRequires : python3-dev
 BuildRequires : setuptools
 BuildRequires : xmlto
 Patch1: no-timestamp.patch
+Patch2: 64bit.patch
 
 %description
 
@@ -53,15 +54,19 @@ doc components for the yasm package.
 %prep
 %setup -q -n yasm-1.3.0
 %patch1 -p1
+%patch2 -p1
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1484435350
+export SOURCE_DATE_EPOCH=1510759865
 %configure --disable-static
-make V=1  %{?_smp_mflags}
+make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1484435350
+export SOURCE_DATE_EPOCH=1510759865
 rm -rf %{buildroot}
 %make_install
 

@@ -1,0 +1,7 @@
+# This file contains recursive sources that require this package
+ceph
+chrome-gnome-shell
+isa-l
+krb5
+libjpeg-turbo
+p7zip
