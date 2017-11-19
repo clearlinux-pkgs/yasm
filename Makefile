@@ -1,5 +1,5 @@
 PKG_NAME := yasm
-URL := http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
+URL = https://github.com/yasm/yasm/archive/e256985c4929f4e550d8f70cad5fb936f81b7b06.tar.gz
 
 
 include ../common/Makefile.common
