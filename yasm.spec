@@ -15,7 +15,7 @@ Requires: yasm-doc
 BuildRequires : cmake
 BuildRequires : pbr
 BuildRequires : pip
-BuildRequires : python-dev
+
 BuildRequires : python3-dev
 BuildRequires : setuptools
 BuildRequires : xmlto
