@@ -4,9 +4,11 @@ Configure miss: direct.h presence
 Configure miss: mergesort
 Configure miss: _stricmp
 Configure miss: strcmpi
+Configure miss: CFLocaleCopyPreferredLanguages
 Configure miss: if malloc debugging is wanted
 Configure miss: direct.h usability
 Configure miss: direct.h presence
 Configure miss: mergesort
 Configure miss: _stricmp
 Configure miss: strcmpi
+Configure miss: CFLocaleCopyPreferredLanguages

@@ -1,7 +1,10 @@
 # This file contains recursive sources that require this package
+SVT-HEVC
 ceph
-chrome-gnome-shell
 isa-l
 krb5
 libjpeg-turbo
+libvpx
 p7zip
+vlc
+xrdp
