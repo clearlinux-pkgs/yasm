@@ -4,7 +4,7 @@
 #
 Name     : yasm
 Version  : e256985c4929f4e550d8f70cad5fb936f81b7b06
-Release  : 30
+Release  : 31
 URL      : https://github.com/yasm/yasm/archive/e256985c4929f4e550d8f70cad5fb936f81b7b06.tar.gz
 Source0  : https://github.com/yasm/yasm/archive/e256985c4929f4e550d8f70cad5fb936f81b7b06.tar.gz
 Summary  : No detailed summary available
