@@ -4,7 +4,7 @@
 #
 Name     : yasm
 Version  : e256985c4929f4e550d8f70cad5fb936f81b7b06
-Release  : 31
+Release  : 32
 URL      : https://github.com/yasm/yasm/archive/e256985c4929f4e550d8f70cad5fb936f81b7b06.tar.gz
 Source0  : https://github.com/yasm/yasm/archive/e256985c4929f4e550d8f70cad5fb936f81b7b06.tar.gz
 Summary  : No detailed summary available
@@ -13,10 +13,18 @@ License  : Artistic-1.0-Perl BSD-2-Clause
 Requires: yasm-bin = %{version}-%{release}
 Requires: yasm-license = %{version}-%{release}
 Requires: yasm-man = %{version}-%{release}
+BuildRequires : automake
+BuildRequires : automake-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-distutils3
+BuildRequires : gettext-bin
+BuildRequires : libtool
+BuildRequires : libtool-dev
+BuildRequires : m4
+BuildRequires : pkg-config-dev
 BuildRequires : xmlto
 Patch1: no-timestamp.patch
+Patch2: 0001-Fix-compat-issues-with-autoconf-2.70.patch
 
 %description
 
@@ -61,13 +69,14 @@ man components for the yasm package.
 %setup -q -n yasm-e256985c4929f4e550d8f70cad5fb936f81b7b06
 cd %{_builddir}/yasm-e256985c4929f4e550d8f70cad5fb936f81b7b06
 %patch1 -p1
+%patch2 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1604542064
+export SOURCE_DATE_EPOCH=1608109552
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -77,7 +86,7 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1604542064
+export SOURCE_DATE_EPOCH=1608109552
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/yasm
 cp %{_builddir}/yasm-e256985c4929f4e550d8f70cad5fb936f81b7b06/Artistic.txt %{buildroot}/usr/share/package-licenses/yasm/be0627fff2e8aef3d2a14d5d7486babc8a4873ba

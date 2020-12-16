@@ -1,0 +1,40 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Patrick McCarty <patrick.mccarty@intel.com>
+Date: Wed, 16 Dec 2020 09:04:01 +0000
+Subject: [PATCH] Fix compat issues with autoconf 2.70
+
+Signed-off-by: Patrick McCarty <patrick.mccarty@intel.com>
+---
+ configure.ac | 11 ++++-------
+ 1 file changed, 4 insertions(+), 7 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index 01b6109..ddabc8c 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -70,7 +70,7 @@ esac], enable_python_bindings="no")
+ # Checks for programs.
+ #
+ AC_PROG_CPP
+-AC_PROG_CC_STDC
++AC_PROG_CC
+ AC_PROG_INSTALL
+ AC_PROG_LN_S
+ #automake default ARFLAGS to "cru"
+@@ -101,13 +101,10 @@ AM_WITH_DMALLOC
+ #
+ # Checks for header files.
+ #
+-AC_HEADER_STDC
+-AC_CHECK_HEADERS([strings.h libgen.h unistd.h direct.h sys/stat.h])
++AC_CHECK_INCLUDES_DEFAULT
++AC_PROG_EGREP
+ 
+-# REQUIRE standard C headers
+-if test "$ac_cv_header_stdc" != yes; then
+-	AC_MSG_ERROR([Standard (ANSI/ISO C89) header files are required.])
+-fi
++AC_CHECK_HEADERS([strings.h libgen.h unistd.h direct.h sys/stat.h])
+ 
+ #
+ # Checks for typedefs, structures, and compiler characteristics.
